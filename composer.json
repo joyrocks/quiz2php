@@ -1,0 +1,15 @@
+{
+  "name": "joyrocks/quiz2php",
+  "description": "description_text",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Ivan Lavoryk",
+      "email": "il@joyrocks.com"
+    }
+  ],
+  "require": {
+    "parse/php-sdk": "^1.1@dev"
+  }
+}
