@@ -20,6 +20,7 @@ class ResourcesBuilder {
 
     function __construct() {
         $this->imageResources = (object) ["groups" => [], "resources" => []];
+        $this->imageResources->groups[] = (object)["keys"=>"tasks", "name" => "preload_task"];
         $this->imageResources->resources[] = (object)["name" =>  "tasks", "type" => "json", "url" => $this->taskPath.DIRECTORY_SEPARATOR."task.json"];
 
         if( !is_dir($this->fullPath2Images())) {
@@ -42,7 +43,7 @@ class ResourcesBuilder {
         $parseFile = $obj->get("file");
         copy($parseFile->getURL(), $this->fullPath2Images() . DIRECTORY_SEPARATOR . $parseFile->getName());
         $this->tasks[] = $obj->_encode();
-        $this->imageResources->resources[] = (object)["name" =>  $parseFile->getName(), "type" => "image", "url" => $this->taskPath.DIRECTORY_SEPARATOR.$parseFile->getName()];
+        $this->imageResources->resources[] = (object)["name" =>  $parseFile->getName(), "type" => "image", "url" => $this->taskPath."/images/".$parseFile->getName()];
     }
 
     public function fullPath2Images() {
